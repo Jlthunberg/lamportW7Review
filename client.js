@@ -34,4 +34,19 @@ function displayInventory(){
 
 function onReady(){
     $( '#addItemButton' ).on( 'click', addItem );
+    $( '#searchForItemButton' ).on( 'click', searchForItem );
 } // end onReady
+
+function searchForItem(){
+    console.log( 'in searchForItem' );
+    // array to hold matches
+    let matches = [];
+    // get user input
+    const searchSize = $( '#searchSizeIn' ).val();
+    const searchColor = $( '#searchColorIn' ).val();
+    console.log( 'searching for:', searchSize, searchColor );
+    // loop through inventory & find matches
+    // display matches on DOM
+    // loop through matches array
+    // append each to matchesOut ul
+} // searchForItem

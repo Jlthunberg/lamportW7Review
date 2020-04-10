@@ -10,6 +10,7 @@
 <body>
     <h1>Lamport W7 Review App</h1>
     <div id="inputDiv">
+        <h2>Add an item:</h2>
         <select id="sizeIn">
             <option>tiny</option>
             <option>small</option>
@@ -30,7 +31,32 @@
         <button id="addItemButton">Add Item</button>
     </div>
     <div id="outputDiv">
+        <h2>Current Inventory:</h2>
         <ul id="inventoryOut">
+
+        </ul>
+    </div>
+    <div id="searchDiv">
+        <h2>Search for an Item:</h2>
+        <select id="searchSizeIn">
+            <option>tiny</option>
+            <option>small</option>
+            <option>medium</option>
+            <option>large</option>
+            <option>huge</option>
+            <option>enormous</option>
+        </select>
+        <select id="searchColorIn">
+            <option>red</option>
+            <option>orange</option>
+            <option>yellow</option>
+            <option>green</option>
+            <option>blue</option>
+            <option>purple</option>
+        </select>
+        <button id="searchForItemButton">Search</button>
+        <h3>Matches:</h3>
+        <ul id="matchesOut">
             
         </ul>
     </div>
