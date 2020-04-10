@@ -46,6 +46,13 @@ function searchForItem(){
     const searchColor = $( '#searchColorIn' ).val();
     console.log( 'searching for:', searchSize, searchColor );
     // loop through inventory & find matches
+    for( let i=0; i<inventory.length; i++ ){
+        // if this item matches size push into matches
+        if( inventory[ i ].size === searchSize && inventory[ i ].color === searchColor ){
+            matches.push( inventory[ i ] );
+        } // end match
+    } // end for
+    console.log( 'matches:', matches );
     // display matches on DOM
     // loop through matches array
     // append each to matchesOut ul
