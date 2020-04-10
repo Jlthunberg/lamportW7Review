@@ -55,5 +55,15 @@ function searchForItem(){
     console.log( 'matches:', matches );
     // display matches on DOM
     // loop through matches array
-    // append each to matchesOut ul
+    for( let i=0; i<matches.length; i++){
+        // target matchesOut by ID & empty
+        let el = $( '#matchesOut' );
+        el.empty();
+        // append each to matchesOut ul
+        el.append( `<li>
+            ${ matches[ i ].size }
+            ${ matches[ i ].color }:
+            ${ matches[ i ].description }
+            </li>`);
+    } //end for
 } // searchForItem
