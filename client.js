@@ -13,9 +13,24 @@ function addItem(){
     console.log( 'itemToAdd:', itemToAdd );
     // push object into our inventory array
     inventory.push( itemToAdd );
-    /// - TEMP
-    console.log( 'inventory:', inventory );
+    displayInventory();
 } // end addItem
+
+function displayInventory(){
+    console.log( 'in displayInventory:', inventory );
+    // target output ul by ID
+    let el = $( '#inventoryOut' );
+    // empty ul
+    el.empty();
+    // loop through inventory
+    for( let i=0; i<inventory.length; i++){
+        // append each item to ul
+        el.append( `<li>
+        ${ inventory[ i ].size }
+        ${ inventory[ i ].color }:
+        ${ inventory[ i ].description }</li>`)
+    } // end for
+} // displayInventory
 
 function onReady(){
     $( '#addItemButton' ).on( 'click', addItem );
