@@ -1,23 +1,32 @@
 $( document ).ready( onReady );
 
 let inventory = [];
+const verbose = true;
 
 function addItem(){
-    console.log( 'in addItem' );
-    // get user inputs & place into an object
-    let itemToAdd = {
-        description: $( '#descriptionIn' ).val(),
-        color: $( '#colorIn' ).val(),
-        size: $( '#sizeIn' ).val()
-    } // end itemToAdd
-    console.log( 'itemToAdd:', itemToAdd );
-    // push object into our inventory array
-    inventory.push( itemToAdd );
-    displayInventory();
+    if( verbose ) console.log( 'in addItem' );
+    // check for empty string, only add item if it has a description
+    if( $( '#descriptionIn' ).val() === '' ){
+       alert( 'item must have a description') 
+    } // end no description
+    else{
+        // get user inputs & place into an object
+        let itemToAdd = {
+            description: $( '#descriptionIn' ).val(),
+            color: $( '#colorIn' ).val(),
+            size: $( '#sizeIn' ).val()
+        } // end itemToAdd
+        if( verbose ) console.log( 'itemToAdd:', itemToAdd );
+        // push object into our inventory array
+        inventory.push( itemToAdd );
+        // empty input
+        $( '#descriptionIn' ).val( '' );
+        displayInventory();
+    } // end has description
 } // end addItem
 
 function displayInventory(){
-    console.log( 'in displayInventory:', inventory );
+    if( verbose ) console.log( 'in displayInventory:', inventory );
     // target output ul by ID
     let el = $( '#inventoryOut' );
     // empty ul
@@ -38,13 +47,13 @@ function onReady(){
 } // end onReady
 
 function searchForItem(){
-    console.log( 'in searchForItem' );
+    if( verbose ) console.log( 'in searchForItem' );
     // array to hold matches
     let matches = [];
     // get user input
     const searchSize = $( '#searchSizeIn' ).val();
     const searchColor = $( '#searchColorIn' ).val();
-    console.log( 'searching for:', searchSize, searchColor );
+    if( verbose ) console.log( 'searching for:', searchSize, searchColor );
     // loop through inventory & find matches
     for( let i=0; i<inventory.length; i++ ){
         // if this item matches size push into matches
@@ -52,7 +61,7 @@ function searchForItem(){
             matches.push( inventory[ i ] );
         } // end match
     } // end for
-    console.log( 'matches:', matches );
+    if( verbose ) console.log( 'matches:', matches );
     // display matches on DOM
     // loop through matches array
     for( let i=0; i<matches.length; i++){
